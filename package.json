@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "firebase": "^5.5.0",
     "johnny-five": "^1.0.0",
     "raspi-io": "latest"
   }
