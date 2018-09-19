@@ -17,7 +17,7 @@ var board = new five.Board({
 });
 
 board.on('ready', () => {
-  var servo = new five.Servo({ pin: 'GPIO02' });
+  var servo = new five.Servo({ pin: 'GPIO17' });
   // firebase.database().ref('servo').on('value').then(snapshot => {
     // console.log(snapshot.val())
   	servo.to(90);
