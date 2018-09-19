@@ -17,9 +17,9 @@ var board = new five.Board({
 });
 
 board.on('ready', () => {
-  var servo = new five.Servo({ pin: 'P1-11' });
+  (new five.servo('P1-11')).to(90);
   // firebase.database().ref('servo').on('value').then(snapshot => {
     // console.log(snapshot.val())
-  	servo.to(90);
+  	// servo.to(90);
 	// });
 });
