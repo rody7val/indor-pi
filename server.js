@@ -1,6 +1,6 @@
 // const firebase = require('firebase');
-const five = require('johnny-five');
-const Raspi = require('raspi-io');
+var five = require('johnny-five');
+var Raspi = require('raspi-io');
 
 // firebase.initializeApp({
   // apiKey: "AIzaSyCx63dO4hmqDjUphM11zba_1ONMcPekQNc",
