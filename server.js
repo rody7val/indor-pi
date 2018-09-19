@@ -1,5 +1,5 @@
 const firebase = require('firebase');
-const five = require('johnny-five');
+// const five = require('johnny-five');
 // const Raspi = require('raspi-io');
 
 firebase.initializeApp({
@@ -11,15 +11,15 @@ firebase.initializeApp({
   messagingSenderId: "407116836792"
 });
 
-var board = new five.Board();
+// var board = new five.Board();
 // var board = new five.Board({ 
 	// io: new Raspi()
 // });
 
-board.on('ready', () => {
+// board.on('ready', () => {
  //  var servo = new five.Servo({ pin: 'GPIO02' });
   firebase.database().ref('servo').on('value').then(snapshot => {
     console.log(snapshot.val())
   	// servo.to(snapshot.val());
 	});
-});
+// });
