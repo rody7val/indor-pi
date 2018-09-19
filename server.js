@@ -18,7 +18,16 @@ var board = new five.Board({
 
 board.on('ready', () => {
 
-  (new five.Servo({pin: 'P1-11', type: 'standar'})).to(90);
+  var servo = new five.Servo({
+    pin: 'P1-11',
+    type: 'standard',
+    startAt: 90
+  });
+
+  this.repl.inject({
+    board: board,
+    servo: servo
+  });
   // firebase.database().ref('servo').on('value').then(snapshot => {
     // console.log(snapshot.val())
   	// servo.to(90);
