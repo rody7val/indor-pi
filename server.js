@@ -18,7 +18,7 @@ var board = new five.Board({
 
 board.on('ready', () => {
 
-  var servo = new five.Servo(11);
+  var servo = new five.Servo('P1-11');
 
   this.repl.inject({
     servo: servo
