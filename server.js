@@ -20,7 +20,7 @@ board.on('ready', () => {
   var db = firebase.database();
   // var led = new five.Led("P1-11");
   // led.blink();
-  db.ref('servo').on('value').then(snapshot => {
+  db.ref('servo').on('value', snapshot => {
     console.log(snapshot.val())
 	});
 });
