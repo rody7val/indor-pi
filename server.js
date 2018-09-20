@@ -1,28 +1,38 @@
-var firebase = require('firebase-admin');
-var five = require('johnny-five');
-var Raspi = require('raspi-io');
-var serviceAccount = require("./serviceAccountKey.json");
+require('dotenv').config()
+const firebase = require('firebase-admin');
+const five = require('johnny-five');
+const Raspi = require('raspi-io');
 
 firebase.initializeApp({
-  credential: firebase.credential.cert(serviceAccount),
-  // apiKey: "AIzaSyCx63dO4hmqDjUphM11zba_1ONMcPekQNc",
-  // authDomain: "indor-pi.firebaseapp.com",
   databaseURL: "https://indor-pi.firebaseio.com",
-  // projectId: "indor-pi",
-  // storageBucket: "indor-pi.appspot.com",
-  // messagingSenderId: "407116836792"
+  credential: firebase.credential.cert({
+    "type": "service_account",
+    "project_id": "indor-pi",
+    "private_key_id": process.env.private_key_id,
+    "private_key": process.env.private_key,
+    "client_email": process.env.client_email,
+    "client_id": process.env.client_id,
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-rwhpo%40indor-pi.iam.gserviceaccount.com"
+  }),
 });
 
-// var board = new five.Board();
-var board = new five.Board({ 
+const board = new five.Board({ 
 	io: new Raspi()
 });
 
 board.on('ready', () => {
-  var db = firebase.database();
-  // var led = new five.Led("P1-11");
-  // led.blink();
-  db.ref('servo').on('value', snapshot => {
-    console.log(snapshot.val())
+  const db = firebase.database();
+  const ref_foco = db.ref('foco');
+  const ref_cooler = db.ref('cooler');
+
+  ref_foco.on('value', foco => {
+    console.log('foco', foco.val())
 	});
+
+  ref_cooler.on('value', cooler => {
+    console.log('cooler', cooler.val())
+  });
 });
