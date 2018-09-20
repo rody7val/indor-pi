@@ -1,7 +1,7 @@
 var firebase = require('firebase-admin');
 var five = require('johnny-five');
 var Raspi = require('raspi-io');
-var serviceAccount = require("path/to/serviceAccountKey.json");
+var serviceAccount = require("./serviceAccountKey.json");
 
 firebase.initializeApp({
   credential: firebase.credential.cert(serviceAccount),
