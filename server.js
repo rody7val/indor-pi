@@ -17,12 +17,12 @@ var board = new five.Board({
 });
 
 board.on('ready', () => {
+  console.log('ready')
+  // var servo = new five.Servo('P1-11');
 
-  var servo = new five.Servo('P1-11');
-
-  this.repl.inject({
-    servo: servo
-  });
+  // this.repl.inject({
+  //   servo: servo
+  // });
   // firebase.database().ref('servo').on('value').then(snapshot => {
     // console.log(snapshot.val())
   	// servo.to(90);
