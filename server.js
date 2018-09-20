@@ -17,7 +17,9 @@ var board = new five.Board({
 });
 
 board.on('ready', () => {
-  console.log('ready')
+  
+  var led = new five.Led("P1-11");
+  led.blink();
   // var servo = new five.Servo('P1-11');
 
   // this.repl.inject({
