@@ -2,11 +2,11 @@
 const firebase = require('firebase-admin');
 const five = require('johnny-five');
 const Raspi = require('raspi-io');
-const serviceAccount = require("./serviceAccountKey.json");
+var serviceAccount = require("./serviceAccountKey.json");
 
 firebase.initializeApp({
-  databaseURL: "https://indor-pi.firebaseio.com",
   credential: firebase.credential.cert(serviceAccount),
+  databaseURL: "https://indor-pi.firebaseio.com",
   // credential: firebase.credential.cert({
   //   "type": "service_account",
   //   "project_id": "indor-pi",
