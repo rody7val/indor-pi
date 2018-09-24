@@ -27,9 +27,9 @@ board.on('ready', () => {
     console.log('foco:', value);
 
     if (!value) {
-      foco.off();
+      controller_foco.off();
     } else {
-      foco.on();
+      controller_foco.on();
     }
   });
   
@@ -38,9 +38,9 @@ board.on('ready', () => {
     console.log('cooler:', value);
     
     if (!value) {
-      cooler.off();
+      controller_cooler.off();
     } else {
-      cooler.on();
+      controller_cooler.on();
     }
   });
 });
