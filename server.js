@@ -15,12 +15,14 @@ const board = new five.Board({
 
 board.on('ready', () => {
   const db = firebase.database();
+
   const ref_foco = db.ref('foco');
   const ref_cooler = db.ref('cooler');
+
+  var foco = new five.Led("P1-13");
+  var cooler = new five.Led("P1-11");
   
   ref_foco.on('value', snapshot => {
-    var foco = new five.Led("P1-13");
-
     if (!snapshot) {
       foco.off();
     } else {
@@ -28,9 +30,7 @@ board.on('ready', () => {
       foco.on();
     }
   });
-
   ref_cooler.on('value', snapshot => {
-    var cooler = new five.Led("P1-11");
 
     if (!snapshot) {
       cooler.off();
