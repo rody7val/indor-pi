@@ -18,24 +18,24 @@ board.on('ready', () => {
   const ref_foco = db.ref('foco');
   const ref_cooler = db.ref('cooler');
   
-  ref_foco.on('value', foco => {
+  ref_foco.on('value', snapshot => {
     var foco = new five.Led("P1-13");
 
-    if (!foco) {
+    if (!snapshot) {
       foco.off();
     } else {
-      console.log('foco:', foco.val());
+      console.log('foco:', snapshot.val());
       foco.on();
     }
   });
 
-  ref_cooler.on('value', cooler => {
+  ref_cooler.on('value', snapshot => {
     var cooler = new five.Led("P1-11");
 
-    if (!cooler) {
+    if (!snapshot) {
       cooler.off();
     } else {
-      console.log('cooler:', cooler.val());
+      console.log('cooler:', snapshot.val());
       cooler.on();
     }
   });
