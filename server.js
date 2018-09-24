@@ -9,8 +9,8 @@ firebase.initializeApp({
   databaseURL: "https://indor-pi.firebaseio.com"
 });
 
-const board = new five.Board({ 
-	io: new Raspi()
+const board = new five.Board({
+  io: new Raspi()
 });
 
 board.on('ready', () => {
@@ -29,7 +29,7 @@ board.on('ready', () => {
       console.log('foco:', foco.val());
       foco.on();
     }
-	});
+  });
 
   ref_cooler.on('value', cooler => {
     if (!cooler) {
